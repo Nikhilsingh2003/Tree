@@ -35,6 +35,20 @@ void inorder(node *root){
  cout<<root->data<<"    ";
     inorder(root->right);
 }
+int height(node *root){
+     if(root==NULL)return 0;
+     else {
+          int lh=height(root->left);
+          int rh=height(root->right);
+          if(lh>rh){
+               return lh+1;
+          }
+          else {
+               return rh+1;
+          }
+          
+     }
+}
 int main (){
     node *root = new node(69);
    root->left=new node(2);
@@ -50,5 +64,7 @@ cout<<endl;
 postorder(root);
 cout<<endl;
 inorder(root);
+cout<<endl;
+cout<<height(root);
 return 0;
 }
